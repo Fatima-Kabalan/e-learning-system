@@ -13,7 +13,6 @@ const Form = () => {
   return (
     <>
       <div className='form-container'>
-        <span className='close-btn'>x</span>
         <div className='form-content-left'>
           <img src="./images/img.jpg" alt="e-learning-pic" className='form-img' />
         </div>

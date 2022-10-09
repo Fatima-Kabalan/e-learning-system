@@ -78,6 +78,10 @@
   width: 80%;
 }
 
+label{
+    color:white;
+}
+
 .form-inputs p {
   font-size: 0.8rem;
   margin-top: 0.5rem;

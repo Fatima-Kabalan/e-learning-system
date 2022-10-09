@@ -20,8 +20,16 @@ const useForm = () => {
             //targeting the name inputs
             [name]:Value
         })
-    }
-    return {handleChange , Values};
+    };
+
+    // handle submit button
+    const handleSubmit = e => {
+        e.preventDefault();
+    };
+
+
+    return {handleChange , Values ,handleSubmit};
 };
+
 
 export default useForm;

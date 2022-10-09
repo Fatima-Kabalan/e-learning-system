@@ -1,12 +1,13 @@
 import React from 'react'
 import useForm from './Useform'
 
+
 const FormSignup = () => {
-    const{handleChange,Values} = useForm();
+    const{handleChange,Values,handleSubmit} = useForm();
 
   return (
     <div className="form-content-right">
-       <form className="form">
+       <form className="form" onSubmit={handleSubmit}>
             <h1>Get started</h1>
             <div class="form-inputs">
               <label for="username">Username</label>

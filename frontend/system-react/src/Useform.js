@@ -1,7 +1,7 @@
 import { useState , useEffect } from "react";
 import validateInfo from "./validateInfo";
 
-const useForm = (validate) => {
+const useForm = (callback,validate) => {
     const[Values , setValues] = useState({
         username:'',
         email:'',
@@ -33,6 +33,14 @@ const useForm = (validate) => {
         // submitting set to true if clicked 
         setIsSubmitting(true);
     };
+
+    useEffect(() => {
+        if(Object.keys(errors).length === 0 && isSubmitting) {
+            callback();
+        }
+    },
+    [errors]
+    );
 
 
     return {handleChange , Values ,handleSubmit,errors};

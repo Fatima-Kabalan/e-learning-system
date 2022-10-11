@@ -12,6 +12,7 @@ Route::group(["prefix"=> "v1"], function(){
         Route::post("/addStudents", [UserController::class, "addStudents"])->name("addStudents"); 
         Route::post("/addInstructors", [UserController::class, "addInstructors"])->name("addInstructors"); 
         Route::post("/addCourses", [UserController::class, "addCourses"])->name("addCourses"); 
+        Route::get("/getStudents", [UserController::class, "getStudents"])->name("getStudents"); 
     });
 
 });

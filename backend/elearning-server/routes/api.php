@@ -10,6 +10,8 @@ Route::group(["prefix"=> "v1"], function(){
 
     Route::group(["middleware" => "auth:api"], function(){
         Route::post("/addStudents", [UserController::class, "addStudents"])->name("addStudents"); 
+        Route::post("/addInstructors", [UserController::class, "addInstructors"])->name("addInstructors"); 
+        Route::post("/addCourses", [UserController::class, "addCourses"])->name("addCourses"); 
     });
 
 });

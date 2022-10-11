@@ -1,11 +1,18 @@
 <?php
 
 namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Jenssegers\Mongodb\Eloquent\Model;
+
 
 class Course extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'course_id',
+        'student_id',
+        'course_name'
+    ];
+
+    public function user () {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -1,22 +1,43 @@
 import React,{useState} from 'react'
-import FormSignup from './FormSignup'
-import FormSuccess from './FormSuccess'
+import FormSignin from './FormSignin'
 import './Form.css';
 
 const Form = () => {
-  const[isSubmitted, setIsSubmitted] = useState(false)
+  const [loginDetails, setLoginDetails] = useState({
+    email: '',
+    password: ''
+  })
 
-
-  function submitForm(){
-    setIsSubmitted(true);
+  const handleChange = (e) => {
+    setLoginDetails({
+      ...loginDetails,
+      [e.target.name]: e.target.value
+    })
   }
+
+  const submitForm = async (e) => {
+    e.preventDefault();
+    const res = await fetch("http://localhost:8000/login", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
+      body: JSON.stringify(loginDetails),
+      mode: 'no-cors'
+    });
+
+    const data = await res.json();  
+    console.log("data: ", data)
+  }
+
   return (
     <>
       <div className='form-container'>
         <div className='form-content-left'>
           <img src="./images/img.jpg" alt="e-learning-pic" className='form-img' />
         </div>
-        {!isSubmitted ? (<FormSignup submitForm = {submitForm} />) : (<FormSuccess />)} 
+        <FormSignin submitForm={submitForm} handleChange={handleChange} loginDetails={loginDetails} />
       </div>
     </>
   );

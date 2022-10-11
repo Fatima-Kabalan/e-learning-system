@@ -11,7 +11,7 @@ const FormSignup = ({submitForm}) => {
     <div className="form-content-right">
        <form className="form" onSubmit={handleSubmit}>
             <h1>E-learning System</h1>
-            <div class="form-inputs">
+            <div className="form-inputs">
               <label for="username">Username</label>
               <input 
                 type="text"

@@ -10,6 +10,9 @@ use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 class User extends Authenticatable implements JWTSubject
 {
     use HasFactory, Notifiable;  
+    
+    protected $connection = 'mongodb';
+
     protected $fillable = [
         'user_id',
         'name',
